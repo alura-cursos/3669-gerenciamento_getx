@@ -4,12 +4,22 @@ import 'package:panucci_delivery/components/cartao/cartao_controller.dart';
 
 import '../../models/item.dart';
 
-class Cartao extends StatelessWidget {
+class Cartao extends StatefulWidget {
   Cartao({Key? key, required this.item}) : super(key: key);
   final Item item;
 
-  final CartaoController controller =
-      Get.put(CartaoController(), tag: item.nome);
+  @override
+  State<Cartao> createState() => _CartaoState();
+}
+
+class _CartaoState extends State<Cartao> {
+  late CartaoController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = Get.put(CartaoController(), tag: widget.item.nome);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +33,7 @@ class Cartao extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Image(
-              image: AssetImage(item.uri),
+              image: AssetImage(widget.item.uri),
               width: double.infinity,
               height: 50,
               fit: BoxFit.cover,
@@ -36,13 +46,13 @@ class Cartao extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(bottom: 8.0),
                     child: Text(
-                      item.nome,
+                      widget.item.nome,
                       style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 8.0),
-                    child: Text("R\$ ${item.preco.toStringAsFixed(2)}"),
+                    child: Text("R\$ ${widget.item.preco.toStringAsFixed(2)}"),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
