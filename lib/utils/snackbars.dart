@@ -17,4 +17,12 @@ class AppSnackbars {
       duration: Duration(seconds: 2),
     ));
   }
+
+  static getPayment() {
+    return Get.showSnackbar(GetSnackBar(
+      title: "Compra finalizada!",
+      message: "Seu pedido chegará em breve.",
+      duration: Duration(seconds: 2),
+    ));
+  }
 }

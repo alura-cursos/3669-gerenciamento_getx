@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:panucci_delivery/components/order_item.dart';
 import 'package:panucci_delivery/controllers/carrinho_controller.dart';
+import 'package:panucci_delivery/screens/home.dart';
+import 'package:panucci_delivery/utils/snackbars.dart';
 import '../components/payment_method.dart';
 import '../components/payment_total.dart';
 
@@ -60,7 +62,10 @@ class Checkout extends StatelessWidget {
                 child: Align(
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.offAll(() => Home());
+                        AppSnackbars.getPayment();
+                      },
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
                           foregroundColor: Colors.white,
