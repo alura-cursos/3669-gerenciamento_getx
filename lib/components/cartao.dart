@@ -47,16 +47,22 @@ class Cartao extends StatelessWidget {
                     children: <Widget>[
                       InkWell(
                         borderRadius: BorderRadius.circular(20),
-                        onTap: () {},
+                        onTap: () {
+                          if (counter > 0) {
+                            counter--;
+                          }
+                        },
                         child: const Icon(
                           Icons.remove_circle_outline,
                           size: 20,
                         ),
                       ),
-                      Text("0"),
+                      Obx(() => Text(counter.toString())),
                       InkWell(
                         borderRadius: BorderRadius.circular(20),
-                        onTap: () {},
+                        onTap: () {
+                          counter++;
+                        },
                         child: const Icon(
                           Icons.add_circle_outline,
                           size: 20,
