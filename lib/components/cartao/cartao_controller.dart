@@ -4,9 +4,7 @@ class CartaoController extends GetxController {
   var counter = 0.obs;
 
   void decrement() {
-    if (counter > 0) {
-      counter--;
-    }
+    counter--;
   }
 
   void increment() {
