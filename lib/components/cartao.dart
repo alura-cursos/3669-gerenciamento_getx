@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../models/item.dart';
 
 class Cartao extends StatelessWidget {
-  const Cartao({Key? key, required this.item}) : super(key: key);
+  Cartao({Key? key, required this.item}) : super(key: key);
   final Item item;
+
+  var counter = 0.obs;
 
   @override
   Widget build(BuildContext context) {
