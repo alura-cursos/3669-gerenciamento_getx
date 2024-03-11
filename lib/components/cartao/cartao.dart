@@ -8,7 +8,8 @@ class Cartao extends StatelessWidget {
   Cartao({Key? key, required this.item}) : super(key: key);
   final Item item;
 
-  final CartaoController controller = Get.put(CartaoController());
+  final CartaoController controller =
+      Get.put(CartaoController(), tag: item.nome);
 
   @override
   Widget build(BuildContext context) {
