@@ -72,6 +72,11 @@ class _CartaoState extends State<Cartao> {
                         borderRadius: BorderRadius.circular(20),
                         onTap: () {
                           controller.increment();
+                          Get.showSnackbar(GetSnackBar(
+                            title: "Item adicionado!",
+                            message:
+                                "${widget.item.nome} foi adicionado à sacola de compras",
+                          ));
                         },
                         child: const Icon(
                           Icons.add_circle_outline,
